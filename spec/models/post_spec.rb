@@ -1,12 +1,17 @@
-require 'spec_helper'
+require '../spec_helper'
 
 describe Post do
   it "title should be automatically titleized before save" do
-    pending
+    post = Post.new(title: "here is a title", content: "cool")
+    post.save
+    expect(post.title).to eq("Here Is A Title")
   end
 
+
   it "post should be unpublished by default" do
-    pending
+    post = Post.new(title: "here is a title", content: "cool")
+    post.save
+    expect(post.is_published?).to eq false
   end
 
   # a slug is an automaticaly generated url-friendly
